@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Useful and Fun</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+    <header>
+        <h1>Something Useful</h1>
+    </header>
+
+    <main>
+        <details>
+            <summary>Android</summary>
+            <div>
+                <p>Private DNS</p>
+                <pre><code>family.adguard-dns.com</code></pre>
+            </div>
+        </details>
+        <details>
+            <summary>CyberChef</summary>
+            <div>
+                <a href="https://cyberchef.io/">CyberChef</a>
+            </div>
+        </details>
+        <a href="hyperv/hyperv.html"><h3>Hyper-V</h3></a>
+        <!-- <details>
+            <summary>HyperV</summary>
+            <div>
+                <details>
+                    <summary>Update VM-W11-SYSPREP</summary>
+                    <div>
+                        <ol class="checklist numbered">
+                            <li><label><input type="checkbox"><span>Start VM-W11-SYSPREP</span></label></li>
+                            <li><label><input type="checkbox"><span>Ctrl+Shift+F3 to access Audit Mode at start of OOBE</span></label></li>
+                            <li><label><input type="checkbox"><span>Settings > Windows Update > Check for updates</span></label></li>
+                            <li><label><input type="checkbox"><span>Restart using the Windows Update prompt</span></label></li>
+                            <li><label><input type="checkbox"><span>Settings > Windows Update > Check for updates</span></label></li>
+                            <li><label><input type="checkbox"><span>Terminal (not admin)</span></label></li>
+                            <pre><code>
+winget update
+winget update --all
+                            </code></pre>
+                            <li><label><input type="checkbox"><span>Settings > System > Storage > Temporary Files > Remove Files</span></label></li>
+                            <li><label><input type="checkbox"><span>Cleanup winget in Admin terminal</span></label></li>
+                            <pre><code>
+Get-AppxPackage -AllUsers | Where-Object { $_.PackageFullName -like '*Microsoft.Winget.Source*' } | Remove-AppxPackage
+                            </code></pre>
+                            <li><label><input type="checkbox"><span>Run SysPrep</span></label></li>
+                            <pre><code>
+C:\Windows\System32\Sysprep\sysprep.exe /generalize /oobe /shutdown
+                            </code></pre>
+                            <li><label><input type="checkbox"><span>HyperV Manager > VM-W11-SYSPREP > Delete all checkpoints</span></label></li>
+                            <li><label><input type="checkbox"><span>HyperV Manager > VM-W11-SYSPREP > Settings > Management > Name > Update the Notes</span></label></li>
+                            <li><label><input type="checkbox"><span>7zip > "C:\HyperV\VM-W11-SYSPREP\Virtual Hard Disks" > Right-click VM-W11-SYSPREP.vhdx > Add to archive... > C:\Users\...\Downloads\OS\VM-W11-SYSPREP\MMxYYYY > Split to 1000M > Background</span></label></li>
+                        </ol>
+                    </div>
+                </details>
+                <details>
+                    <summary>Depoly SBX from SYSPREP</summary>
+                    <div>
+                        <ol class="checklist numbered">
+                            <li><label><input type="checkbox"><span>Hyper-V Manager > Import Virtual Machine… </span></label></li>
+                            <li><label><input type="checkbox"><span>C:\HyperV\VM-W11-SYSPREP </span></label></li>
+                            <li><label><input type="checkbox"><span>Copy the virtual machine (Create a new unique ID) </span></label></li>
+                            <li><label><input type="checkbox"><span>Store the virtual machine in a different location </span></label></li>
+                                <ul>
+                                    <li>Create new and set all to new folder</li>
+                                    <li>C:\HyperV\VM-W11-SBX-##\</li>
+                                </ul>
+                            <li><label><input type="checkbox"><span>Original vhdx C:\HyperV\VM-W11-SYSPREP\</span></label></li>
+                            <li><label><input type="checkbox"><span>New vhdx C:\HyperV\VM-W11-SBX-##\</span></label></li>
+                            <li><label><input type="checkbox"><span>Finish</span></label></li>
+                            <li><label><input type="checkbox"><span>Rename newly imported VM</span></label></li>
+                            <li><label><input type="checkbox"><span>Setting > Rename and select the vhdx</span></label></li>
+                            <li><label><input type="checkbox"><span>Start VM and complete OOBE</span></label></li>
+                                <ul>
+                                    <li>Setup for work or school to create local profile</li>
+                                </ul>
+                            <li><label><input type="checkbox"><span>Admin Terminal > Win11Debloat</span></label></li>
+                                <pre><code>C:\Scripts\Win11Debloat.ps1"</code></pre>
+                            <li><label><input type="checkbox"><span>Shutdown</span></label></li>
+                            <li><label><input type="checkbox"><span>HyperV Manager > VM-W11-SBX-## > Delete automatic checkpoint</span></label></li>
+                            <li><label><input type="checkbox"><span>HyperV Manager > VM-W11-SBX-## > Settings > Security > Enable Shielding</span></label></li>
+                            <li><label><input type="checkbox"><span>HyperV Manager > VM-W11-SBX-## > Settings > Network > Isolated</span></label></li>
+                            <li><label><input type="checkbox"><span>HyperV Manager > VM-W11-SBX-## > Checkpoint > Rename to START HERE</span></label></li>
+                      </ol>
+                    </div>
+                </details>
+                <details>
+                    <summary>Update VM-W11-SBX-##</summary>
+                    <div>
+                        <ol class="checklist numbered">
+                            <li><label><input type="checkbox"><span>Revert to START HERE checkpoint</span></label></li>
+                            <li><label><input type="checkbox"><span>Start VM-W11-SBX-##</span></label></li>
+                            <li><label><input type="checkbox"><span>Settings > Windows Update > Check for updates</span></label></li>
+                            <li><label><input type="checkbox"><span>Restart using the Windows Update prompt</span></label></li>
+                            <li><label><input type="checkbox"><span>Settings > Windows Update > Check for updates</span></label></li>
+                            <li><label><input type="checkbox"><span>Terminal (not admin)</span></label></li>
+                            <pre><code>
+winget update
+winget update --all
+                            </code></pre>
+                            <li><label><input type="checkbox"><span>Settings > System > Storage > Temporary Files > Remove Files</span></label></li>
+                            <li><label><input type="checkbox"><span>Shutdown</span></label></li>
+                            <li><label><input type="checkbox"><span>HyperV Manager > VM-W11-SBX-## > Delete START HERE checkpoint</span></label></li>
+                            <li><label><input type="checkbox"><span>HyperV Manager > VM-W11-SBX-## > Checkpoint > Rename to START HERE</span></label></li>
+                            <li><label><input type="checkbox"><span>HyperV Manager > VM-W11-SBX-## > Settings > Management > Name > Update the Notes</span></label></li>
+                        </ol>
+                    </div>
+                </details>
+            </div>
+        </details> -->
+        <details>
+            <summary>PowerShell</summary>
+            <div>
+                <p>Work in Progress...</p>
+                <details>
+                    <summary>Network</summary>
+                    <div>
+                        <details>
+                            <summary>Misc</summary>
+                                <div>
+                                    <p>ipconfig /all for PowerShell</p>
+                                    <pre><code>Get-NetIPConfiguration</code></pre>
+                                    <p>Test Network</p>
+                                    <pre><code>Test-Connection</code></pre>
+                                    <pre><code>Test-NetConnection</code></pre>
+                                    <p>Resolve hostname / domain</p>
+                                    <pre><code>Resolve-DnsName</code></pre>
+                                    <p>Change DNS Server</p>
+                                    <pre><code>Set-DnsClientServerAddress -InterfaceAlias "vEthernet (IsolatedInternal)" -ServerAddresses ("192.168.1.1", "192.168.1.2")</code></pre>
+                                    <p>Resolve DNS Names from a list of IPs</p>
+                                    <pre><code>
+$ips = @("8.8.8.8", "8.8.4.4", "1.1.1.1")
+foreach ($ip in $ips) {
+    $result = Resolve-DnsName -Name $ip
+    $result | ForEach-Object {
+        [PSCustomObject]@{
+            IPAddress = $ip
+            NameHost  = $_.NameHost
+        }
+    }
+}
+                                    </code></pre>
+                                    <p>Resolve IPs from a list of DNS Names</p>
+                                    <pre><code>
+$hostnames = @("example.com", "google.com", "microsoft.com")
+foreach ($hostname in $hostnames) {
+    $result = Resolve-DnsName -Name $hostname
+    $result | Select-Object -Property Name, IPAddress
+}
+                                    </code></pre>
+                                </div>
+                        </details>
+                        <details>
+                            <summary>Resolve domains from IPs using VirusTotal API</summary>
+                            <div>
+                                <pre><code>
+# Define your VirusTotal API key
+$apiKey = "YOUR_API_KEY"
+
+# Define the list of IP addresses
+# $ipAddresses = @("1.1.1.1", "2.2.2.2", "3.3.3.3")
+$ipAddresses = @("8.8.8.8", "8.8.4.4", "1.1.1.1")
+
+# Function to get associated domains from VirusTotal
+function Get-AssociatedDomains {
+    param (
+        [string]$ip,
+        [string]$apiKey
+    )
+    $url = "https://www.virustotal.com/vtapi/v2/ip-address/report?apikey=$apiKey&ip=$ip"
+    $response = Invoke-RestMethod -Uri $url -Method Get
+    return $response.resolutions | Select-Object -Property hostname
+}
+
+# Initialize an array to store results
+$results = @()
+
+# Get associated domains for each IP address
+foreach ($ip in $ipAddresses) {
+    $domains = Get-AssociatedDomains -ip $ip -apiKey $apiKey
+    $domains | ForEach-Object {
+        $results += [PSCustomObject]@{
+            IPAddress = $ip
+            Domain    = $_.hostname
+        }
+    }
+}
+
+# Output the results to a CSV file
+$csvFile = "associated_domains_results.csv"
+$results | Export-Csv -Path $csvFile -NoTypeInformation
+
+Write-Host "Results have been written to $csvFile"
+                                </code></pre>
+                            </div>
+                        </details>
+                        <details>
+                            <summary>Subdomain Discovery using VirusTotal API</summary>
+                            <div>
+                                <pre><code>
+# Define your VirusTotal API key
+$apiKey = "VirusTotal API Key"
+
+# Define the domains for subdomain discovery
+$domainsForSubdomainDiscovery = @("example.com", "anotherdomain.com")
+
+# Define other domains that do not need subdomain discovery
+$otherDomains = @("yetanotherdomain.com", "somedomain.com")
+
+# Function to get subdomains from VirusTotal
+function Get-Subdomains {
+    param (
+        [string]$domain,
+        [string]$apiKey
+    )
+    $url = "https://www.virustotal.com/vtapi/v2/domain/report?apikey=$apiKey&domain=$domain"
+    $response = Invoke-RestMethod -Uri $url -Method Get
+    return $response.subdomains
+}
+
+# Function to resolve IP addresses
+function Resolve-IP {
+    param (
+        [string]$domain
+    )
+    $result = Resolve-DnsName -Name $domain
+    return $result | Select-Object -Property Name, IPAddress
+}
+
+# Initialize an array to store results
+$results = @()
+
+# Discover subdomains and resolve IPs for specified domains
+foreach ($domain in $domainsForSubdomainDiscovery) {
+    $subdomains = Get-Subdomains -domain $domain -apiKey $apiKey
+    $allDomains = $subdomains + $domain
+    foreach ($subdomain in $allDomains) {
+        $ips = Resolve-IP -domain $subdomain
+        $ips | ForEach-Object {
+            $results += [PSCustomObject]@{
+                Domain    = $subdomain
+                IPAddress = $_.IPAddress
+            }
+        }
+    }
+}
+
+# Resolve IPs for other domains
+foreach ($domain in $otherDomains) {
+    $ips = Resolve-IP -domain $domain
+    $ips | ForEach-Object {
+        $results += [PSCustomObject]@{
+            Domain    = $domain
+            IPAddress = $_.IPAddress
+        }
+    }
+}
+
+# Output the results to a CSV file
+$csvFile = "dns_resolution_results.csv"
+$results | Export-Csv -Path $csvFile -NoTypeInformation
+
+Write-Host "Results have been written to"$csvFile
+                                </code></pre>
+                            </div>
+                        </details>
+                    </div>
+                </details>
+            </div>
+        </details>
+        <details>
+            <summary>Secure Sharing</summary>
+            <div>
+                <p>Share Passwords: <a href="https://www.read2burn.com/">Read2Burn</a></p>
+            </div>
+            <div>
+                <p>Share Files: <a href="https://securesha.re/">Secure Share</a></p>
+            </div>
+            <div>
+                <p>Timed Send or Request Credentials: <a href="https://pwpush.com/">Password Pusher</a></p>
+            </div>
+        </details>
+        <details>
+            <summary>Windows 11 Debloat</summary>
+            <div>
+                <p>Project's readme:</p>
+                <p>Win11Debloat is a simple, easy to use and lightweight PowerShell script that can remove pre-installed Windows bloatware apps, disable telemetry and declutter the experience by disabling or removing intrusive interface elements, ads and more. No need to painstakingly go through all the settings yourself or remove apps one by one. Win11Debloat makes the process quick and easy!</p>
+                <p>Link direct to the project: <a href="https://github.com/Raphire/Win11Debloat">Win11Debloat</a></p>
+                <p>Below is the command I use:</p>
+                <pre><code>& ([scriptblock]::Create((irm "https://win11debloat.raphi.re/"))) -RunDefaults -Silent -RemoveCommApps -RemoveW11Outlook -RemoveGamingApps -DisableDVR -ClearStartAllUsers -HideTaskview -DisableRecall -ExplorerToThisPC </code></pre>
+            </div>
+        </details>
+    </main>
+    
+    <header>
+        <h1>Something Fun</h1>
+    </header>
+
+    <main>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 Tech2Trust</p>
+    </footer>
+
+</body>
+</html>
