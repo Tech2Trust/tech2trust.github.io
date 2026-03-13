@@ -40,7 +40,8 @@ Get-AppxPackage -AllUsers | Where-Object { $_.PackageFullName -like '*Microsoft.
                             <li><label><input type="checkbox"><span><a href="unattend.xml" download>Download Unattend xml</a> to: <strong>C:\Windows\System32\Sysprep\</strong>.</span></label></li>
                             <li><label><input type="checkbox"><span>Admin Powershell to check SHA256</span></label></li>
                             <pre><code>
-if ((Get-FileHash "C:\Windows\System32\Sysprep\unattend.xml" -Algorithm SHA256).Hash -eq "5FEE2B1A28CE90A8CAAD81F05B343D40B598E37E93BE08BB56C3825E78CAC1DF") { "Hash matches" } else { "Hash does NOT match" }
+if ((Get-FileHash "C:\Windows\System32\Sysprep\unattend.xml" -Algorithm SHA256).Hash -eq 
+"bc1c9321486a07f9b66e0a57857c86b38b8525c1a4e89c78a7a2bdceeca04460") { "Hash matches" } else { "Hash does NOT match" }
                             </code></pre>
                             <li><label><input type="checkbox"><span>Run SysPrep in Admin terminal</span></label></li>
                             <pre><code>

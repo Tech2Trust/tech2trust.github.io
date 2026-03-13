@@ -10,6 +10,7 @@
       <UILanguage>en-GB</UILanguage>
       <UserLocale>en-GB</UserLocale>
     </component>
+
     <component name="Microsoft-Windows-Setup" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
       <UserData>
         <AcceptEula>true</AcceptEula>
@@ -23,6 +24,54 @@
       </ImageInstall>
     </component>
   </settings>
+
+  <!-- ===================================== -->
+  <!-- specialize PASS (Edge + WER disable) -->
+  <!-- ===================================== -->
+  <settings pass="specialize">
+
+    <!-- Edge First Run Experience Disable -->
+    <component name="Microsoft-Windows-Deployment" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
+      <RunSynchronous>
+        <RunSynchronousCommand>
+          <Order>1</Order>
+          <Description>Disable Microsoft Edge First Run Experience</Description>
+          <Path>reg add "HKLM\SOFTWARE\Policies\Microsoft\Edge" /v HideFirstRunExperience /t REG_DWORD /d 1 /f</Path>
+        </RunSynchronousCommand>
+
+        <!-- Disable Windows Error Reporting -->
+        <RunSynchronousCommand>
+          <Order>2</Order>
+          <Description>Disable Windows Error Reporting</Description>
+          <Path>reg add "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting" /v Disabled /t REG_DWORD /d 1 /f</Path>
+        </RunSynchronousCommand>
+
+        <!-- Disable Consumer Features + Content Delivery -->
+        <RunSynchronousCommand>
+          <Order>3</Order>
+          <Description>Disable Consumer Features & Content Suggestions</Description>
+          <Path>reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v SubscribedContent-338389Enabled /t REG_DWORD /d 0 /f</Path>
+        </RunSynchronousCommand>
+
+        <RunSynchronousCommand>
+          <Order>4</Order>
+          <Description>Disable More ContentDelivery Items</Description>
+          <Path>reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v SubscribedContent-353694Enabled /t REG_DWORD /d 0 /f</Path>
+        </RunSynchronousCommand>
+
+        <RunSynchronousCommand>
+          <Order>5</Order>
+          <Description>Disable Windows Consumer Features</Description>
+          <Path>reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\CloudContent" /v DisableConsumerFeatures /t REG_DWORD /d 1 /f</Path>
+        </RunSynchronousCommand>
+      </RunSynchronous>
+    </component>
+
+  </settings>
+
+  <!-- ============================ -->
+  <!--       oobeSystem PASS        -->
+  <!-- ============================ -->
   <settings pass="oobeSystem">
     <component name="Microsoft-Windows-International-Core" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
       <InputLocale>en-GB</InputLocale>
@@ -30,6 +79,7 @@
       <UILanguage>en-GB</UILanguage>
       <UserLocale>en-GB</UserLocale>
     </component>
+
     <component name="Microsoft-Windows-Shell-Setup" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
       <OOBE>
         <HideEULAPage>true</HideEULAPage>
@@ -42,6 +92,7 @@
         <SkipMachineOOBE>true</SkipMachineOOBE>
         <SkipUserOOBE>true</SkipUserOOBE>
       </OOBE>
+
       <UserAccounts>
         <LocalAccounts>
           <LocalAccount>
@@ -54,9 +105,11 @@
           </LocalAccount>
         </LocalAccounts>
       </UserAccounts>
+
       <RegisteredOrganization>Sandbox</RegisteredOrganization>
       <RegisteredOwner>Sandbox User</RegisteredOwner>
       <TimeZone>UTC</TimeZone>
+
       <AutoLogon>
         <Username>sbx</Username>
         <Enabled>true</Enabled>
@@ -66,8 +119,11 @@
           <PlainText>true</PlainText>
         </Password>
       </AutoLogon>
+
       <ComputerName>*</ComputerName>
     </component>
   </settings>
+
   <cpi:offlineImage cpi:source="wim://sources/install.wim#Windows 11 Pro" xmlns:cpi="urn:schemas-microsoft-com:cpi" />
+
 </unattend>
